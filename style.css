@@ -1,0 +1,153 @@
+/* General Body and Font Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 2.5em;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* --- Main Controls Styling --- */
+.main-control-title {
+    color: white;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.main-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 12px;
+}
+
+#system-status-text {
+    color: white;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: left;
+}
+
+/* --- Dashboard and Panel Layout --- */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    padding: 20px;
+    animation: fadeIn 0.5s ease-out forwards;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.panel-section {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+/* --- Table Styling --- */
+.table-container {
+    width: 100%;
+    height: 280px;
+    overflow-y: auto;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    /* UPDATED: Added solid background and z-index */
+    background-color: rgba(220, 225, 230, 1); /* Solid light grey */
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensures header is above scrolling content */
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+tbody td {
+    padding: 8px 10px;
+    text-align: center;
+}
+
+/* --- Indicator and Control Styling --- */
+.indicator-light {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ddd; 
+    border: 2px solid rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+.indicator-light.on { background-color: #28a745; border-color: #218838; box-shadow: 0 0 15px #28a745; }
+.indicator-light.error { background-color: #ffc107; border-color: #e0a800; box-shadow: 0 0 15px #ffc107; }
+
+#control-toggle-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .panel {
+        grid-template-columns: 1fr; 
+    }
+}
