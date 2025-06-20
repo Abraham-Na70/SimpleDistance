@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const USE_MOCK_DATA = false;
-    const API_URL = 'http://192.168.103.77:3000'; // Ensure this IP is correct!
+    const API_URL = 'http://192.168.103.77:3000'; 
     const POLLING_RATE = 2000;
     const LIVE_CHART_MAX_POINTS = 20;
 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const detectionTableBody = document.querySelector('#detection-history-table tbody');
 
     // --- CHART.JS HELPER FUNCTION ---
-    function createLiveChart(canvasId, label, color, yAxisMax = null) { // Added yAxisMax parameter
+    function createLiveChart(canvasId, label, color, yAxisMax = null) { 
         const ctx = document.getElementById(canvasId).getContext('2d');
         const options = {
             responsive: true,
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scales: {
                 y: { 
                     beginAtZero: true,
-                    // NEW: Set max value if provided
                     max: yAxisMax 
                 },
                 x: { display: false }
@@ -47,11 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- CHART INITIALIZATION ---
-    // UPDATED: Pass 10 as the max Y-axis value for the distance chart
     const liveDistanceChart = createLiveChart('live-distance-chart', 'Distance', '#007bff', 10); 
     const liveDetectionChart = createLiveChart('live-detection-chart', 'Detection', '#dc3545');
     
-    // Set detection chart to be a step chart
     liveDetectionChart.options.scales.y.max = 1.1;
     liveDetectionChart.options.scales.y.min = -0.1;
     liveDetectionChart.data.datasets[0].stepped = true;
@@ -59,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
     let currentSystemStatus = 'on';
 
-    // --- CORE LOGIC (No changes below this line, included for completeness) ---
     
     async function fetchDataAndUpdate() {
         try {
