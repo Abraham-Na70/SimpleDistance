@@ -54,9 +54,9 @@ This project utilizes a wide range of hardware and software technologies:
 
 The final result is a clean, responsive web dashboard that provides a complete overview and control of the IoT device. It features live-updating graphs for both distance and detection status, alongside scrollable tables showing the historical data for each.
 
-*A view of the complete dashboard, showing the live graphs and the history tables populated with data from the device.*
+![Final Dashboard Layout](Cirkuit.png)
 
-*A closer view of the live distance graph tracking an object and the corresponding history table.*
+![Final Dashboard Layout](Console.png)
 
 ## **How to Set Up and Run**
 
